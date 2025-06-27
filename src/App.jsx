@@ -21,6 +21,7 @@ const BotomNavPage = lazy(() => import("./Pages/BottomNav/BottomNavPage"));
 const ComicButton = lazy(() => import("./Pages/ComicButton/ComicButton"));
 const StaggeredText = lazy(() => import("./Pages/StaggeredText/StaggeredText"));
 const TextSlideBtnPage = lazy(() => import("./Pages/TextSlide/TextSlideBtnPage"));
+const MagneticButton = lazy(() => import("./Pages/MagneticButton/MagneticButton"));
 const NotFound = lazy(() => import("./Pages/404/404"));
 const Terms = lazy(() => import("./Pages/Terms/Terms"));
 
@@ -44,9 +45,12 @@ function ScrollToTop() {
 
 function ExternalRedirect({ url }) {
   useEffect(() => {
-    window.location.href = url;
+    window.open(url, "_blank")
   }, [url]);
-  return <p style={{ color: "#DFDFDF", fontFamily: "Satoshi" }}>Redirecting...</p>;
+
+  setTimeout(() => {
+    window.location.pathname = "/app"
+  }, 100)
 }
 
 function ConditionalLenisWrapper({ children }) {
@@ -87,6 +91,7 @@ function App() {
               <Route path="bottom-nav" element={<BotomNavPage />} />
               <Route path="comic-button" element={<ComicButton />} />
               <Route path="stagger-text" element={<StaggeredText />} />
+              <Route path="magnetic-button" element={<MagneticButton />} />
               <Route path="text-slide-btn" element={<TextSlideBtnPage />} />
               <Route path="terms" element={<Terms />} />
               <Route path="testing-space" element={<TestingSpace />} />

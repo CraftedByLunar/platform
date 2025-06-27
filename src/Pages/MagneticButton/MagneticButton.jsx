@@ -1,21 +1,16 @@
-import "./TextSlideBtnPage.css";
+import "./MagneticButton.css";
 import React, { useState } from "react";
 import MDConverter from "../../Components/MDConverter/MDConverter";
 import { useEffect } from "react";
 import ComponentPreview from "../../Components/ComponentPreview/ComponentPreview";
-import TextSlideButton from "../../Components/TextSlideButton";
+import MagneticButton from "../../Components/MagneticButton";
 import { useCallback } from "react";
 
 export default function StartingPage() {
     const [markdownContent, setMarkdownContent] = useState(``);
-    const text = "HOVER ME!"
-    const textColor = "black"
-    const color = "white"
-    const secondaryColor = "black"
-    const secondaryTextColor = "white"
-    const onClick = () => {
-        alert("Isn't this awesome?")
-    }
+    const text = "Hover me!"
+    const textColor = "white"
+    const background = "black"
 
     const loadMarkdown = useCallback((path) => {
         fetch(path)
@@ -25,23 +20,23 @@ export default function StartingPage() {
     }, []);
 
     useEffect(() => {
-        loadMarkdown("/TextSlideButton/React/TextSlideButton.md");
+        loadMarkdown("/MagneticButton/React/MagneticButton.md");
     }, [loadMarkdown]);
 
     const handleLanguageChange = (version) => {
         if (version === "react") {
-            loadMarkdown("/TextSlideButton/React/TextSlideButton.md");
+            loadMarkdown("/MagneticButton/React/MagneticButton.md");
         } else if (version === "html") {
-            loadMarkdown("/TextSlideButton/Vanilla/TextSlideButtonVanilla.md");
+            loadMarkdown("/MagneticButton/Vanilla/MagneticButtonVanilla.md");
         }
     };
 
 
     return (
-        <div className="main-textSlide-page">
-            <div className="textSlide-page">
+        <div className="main-magnetic-page">
+            <div className="magnetic-page">
                 <ComponentPreview
-                    onLanguageChange={handleLanguageChange} component={TextSlideButton} componentProps={{ onClick, text, color, secondaryColor, secondaryTextColor, textColor }} title={"Text Slide Button"} stack={"gsap"}></ComponentPreview>
+                    onLanguageChange={handleLanguageChange} component={MagneticButton} componentProps={{ text, textColor, background }} title={"Magnetic Button"} stack={"gsap"}></ComponentPreview>
                 <hr />
                 <MDConverter markdown={markdownContent}></MDConverter>
 

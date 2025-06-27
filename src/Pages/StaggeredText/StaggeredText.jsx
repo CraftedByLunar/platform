@@ -35,7 +35,7 @@ export default function StartingPage() {
         <div className="main-staggerText-page">
             <div className="staggerText-page">
                 <ComponentPreview
-                    onLanguageChange={handleLanguageChange} component={TextStagger} componentProps={{ text, textColor }} title={"Stagger Text"} stack={"gsap"}></ComponentPreview>
+                    onLanguageChange={handleLanguageChange} component={TextStagger} componentProps={{ text, textColor }} title={"Stagger Text"} stack={"gsap, SplitText"}></ComponentPreview>
                 <hr />
                 <MDConverter markdown={markdownContent}></MDConverter>
 

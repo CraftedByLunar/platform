@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+.outer-div {
+  padding: 16px 30px;
+  width: fit-content;
+  border-radius: 50px;
+}
+
+.magneticBtn button {
+  border-radius: 50px;
+  padding: 5px 10px;
+  font-family: "Inter";
+  letter-spacing: -0.03em;
+  cursor: pointer;
+  border: 1px solid black;
+  font-size: 20px;
+}
+
+.inner-div {
+  padding: 5px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+}

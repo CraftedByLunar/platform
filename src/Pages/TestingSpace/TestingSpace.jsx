@@ -3,12 +3,16 @@ import "./TestingSpace.css"
 import ComicButton from "../../Components/3DComicButton"
 import TextStagger from "../../Components/TextStagger"
 import TextSlideButton from "../../Components/TextSlideButton"
+import MagneticButton from "../../Components/MagneticButton"
 
 
 export default function TestingSpace() {
+
+
+
     return (
         <div className="main-testing-space">
-            <TextSlideButton text={"Hover me!"} color={"white"} textColor={"black"} secondaryColor={"black"} secondaryTextColor={"white"}></TextSlideButton>
+            <MagneticButton onClick={() => { alert("WOOW!") }} text={"Hover me!"} background={"#e3546d"} textColor={"white"}></MagneticButton>
         </div >
     )
 }
