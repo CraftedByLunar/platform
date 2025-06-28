@@ -4,7 +4,6 @@
   font-family: "Satoshi";
   display: inline-flex;
   flex-direction: column;
-  gap: 1px;
   overflow: hidden;
   cursor: pointer;
 }
@@ -17,6 +16,7 @@
 .underLine {
   height: 1px;
   width: 100%;
+  margin-top: -4px;
   background-color: black;
   position: relative;
   transform: translateX(-101%);

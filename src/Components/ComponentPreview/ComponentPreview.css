@@ -125,3 +125,9 @@
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width: 474px) {
+  .title h1 {
+    max-width: 50%;
+  }
+}

@@ -7,19 +7,27 @@
 }
 
 .magneticBtn button {
-  border-radius: 50px;
-  padding: 5px 10px;
+  border-radius: 20vw;
+  padding: 5px 15px;
   font-family: "Inter";
   letter-spacing: -0.03em;
   cursor: pointer;
   border: 1px solid black;
   font-size: 20px;
+  transition: box-shadow 0.3s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0x, rgba(0, 0, 0, 0) 0px 0px 0px,
+    rgba(0, 0, 0, 0) 0px 0px 0px;
 }
 
 .inner-div {
-  padding: 5px 10px;
+  padding: 5px 14px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50px;
+}
+
+.magneticBtn button:hover {
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
+    rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
 }

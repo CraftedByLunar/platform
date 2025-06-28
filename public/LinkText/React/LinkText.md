@@ -50,7 +50,6 @@ The base styling establishes the visual hierarchy and prepares the underline ele
   font-family: "Satoshi";
   display: inline-flex;
   flex-direction: column;
-  gap: 1px;
   overflow: hidden;
   cursor: pointer;
 }
@@ -63,6 +62,7 @@ The base styling establishes the visual hierarchy and prepares the underline ele
 .underline {
   height: 1px;
   width: 100%;
+  margin-top: -4px;
   background-color: black;
   position: relative;
   transform: translateX(-101%);
@@ -295,7 +295,6 @@ export default function LinkText({ text = "Hover Me!", to }) {
   font-family: "Satoshi";
   display: inline-flex;
   flex-direction: column;
-  gap: 1px;
   overflow: hidden;
   cursor: pointer;
 }
@@ -308,6 +307,7 @@ export default function LinkText({ text = "Hover Me!", to }) {
 .underLine {
   height: 1px;
   width: 100%;
+  margin-top: -4px;
   background-color: black;
   position: relative;
   transform: translateX(-101%);

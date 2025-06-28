@@ -332,6 +332,11 @@
   font-family: "Satoshi";
 }
 
+.result.selected {
+  border: 1px solid var(--borderColorBlack);
+  background-color: var(--black);
+}
+
 .not-found-search {
   margin-top: -20px;
   display: flex;
@@ -408,9 +413,15 @@
   max-height: 600px;
 }
 
+.left-result-search {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .icon-left-search {
   width: 80px;
-  height: 80%;
+  height: 65px;
   background-color: #1a1a1a;
   border: 1px solid var(--black);
 }
@@ -446,8 +457,18 @@
   padding: 0px 5px;
   border-radius: 5px;
   flex-direction: row;
+  justify-content: space-between;
   gap: 5px;
   cursor: pointer;
+}
+
+.enterIcon {
+  margin-right: 20px;
+}
+
+.enterIcon svg {
+  height: 20px;
+  width: 20px;
 }
 
 .searchIcon {

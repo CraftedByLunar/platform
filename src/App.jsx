@@ -21,6 +21,7 @@ const BotomNavPage = lazy(() => import("./Pages/BottomNav/BottomNavPage"));
 const ComicButton = lazy(() => import("./Pages/ComicButton/ComicButton"));
 const StaggeredText = lazy(() => import("./Pages/StaggeredText/StaggeredText"));
 const TextSlideBtnPage = lazy(() => import("./Pages/TextSlide/TextSlideBtnPage"));
+const CursorDraw = lazy(() => import("./Pages/CursorDraw/CursorDraw"));
 const MagneticButton = lazy(() => import("./Pages/MagneticButton/MagneticButton"));
 const NotFound = lazy(() => import("./Pages/404/404"));
 const Terms = lazy(() => import("./Pages/Terms/Terms"));
@@ -93,6 +94,7 @@ function App() {
               <Route path="stagger-text" element={<StaggeredText />} />
               <Route path="magnetic-button" element={<MagneticButton />} />
               <Route path="text-slide-btn" element={<TextSlideBtnPage />} />
+              <Route path="cursor-draw" element={<CursorDraw />} />
               <Route path="terms" element={<Terms />} />
               <Route path="testing-space" element={<TestingSpace />} />
             </Route>

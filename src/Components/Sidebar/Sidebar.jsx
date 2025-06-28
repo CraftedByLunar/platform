@@ -26,6 +26,11 @@ export const navItems = [
         links: [{ name: "Bottom Bar", path: "/app/bottom-nav" }],
     },
     {
+        category: "Cursor Effects",
+        className: "category",
+        links: [{ name: "Cursor Draw", path: "/app/cursor-draw" }],
+    },
+    {
         category: "Buttons",
         className: "category",
         links: [{ name: "Comic Button", path: "/app/comic-button" }, { name: "Text Slide Button", path: "/app/text-slide-btn" }, { name: "Magnetic Button", path: "/app/magnetic-button" }],
@@ -37,10 +42,12 @@ export default function Sidebar() {
     const navigate = useNavigate();
     const [isMobile, setIsMobile] = useState(false);
     const [query, setQuery] = useState("");
+    const [selectedIndex, setSelectedIndex] = useState(-1);
     const searchBoxRef = useRef(null);
     const searchOverlayRef = useRef(null);
     const searchTimeline = useRef(null);
     const searchInputRef = useRef(null);
+    const resultRefs = useRef([]);
 
     const filteredResults = navItems
         .flatMap((section) =>
@@ -74,6 +81,7 @@ export default function Sidebar() {
             },
             onReverseComplete: () => {
                 setQuery("");
+                setSelectedIndex(-1);
                 document.body.style.overflowY = "auto";
             },
         });
@@ -122,6 +130,30 @@ export default function Sidebar() {
         };
     }, []);
 
+    const handleInputKeyDown = (e) => {
+        if (e.key === "ArrowDown") {
+            e.preventDefault();
+            setSelectedIndex((prev) => Math.min(prev + 1, filteredResults.length - 1));
+        } else if (e.key === "ArrowUp") {
+            e.preventDefault();
+            setSelectedIndex((prev) => Math.max(prev - 1, 0));
+        } else if (e.key === "Enter") {
+            if (selectedIndex >= 0 && filteredResults[selectedIndex]) {
+                navigate(filteredResults[selectedIndex].path);
+                searchTimeline.current.reverse();
+            } else if (query !== "" && filteredResults.length > 0) {
+                navigate(filteredResults[0].path);
+                searchTimeline.current.reverse();
+            }
+        }
+    };
+
+    useEffect(() => {
+        if (selectedIndex >= 0 && resultRefs.current[selectedIndex]) {
+            resultRefs.current[selectedIndex].scrollIntoView({ block: "nearest" });
+        }
+    }, [selectedIndex]);
+
     const openMenu = () => {
         gsap.to(".main-sidebar", { left: 0, duration: 0.6, ease: "power4.inOut" });
         if (window.innerWidth < 948) {
@@ -161,16 +193,11 @@ export default function Sidebar() {
                             type="text"
                             placeholder="Search for components"
                             value={query}
-                            onChange={(e) => setQuery(e.target.value)}
-                            onKeyDown={(e) => {
-                                if (e.key === "Enter" && query !== "" && filteredResults.length > 0) {
-                                    e.preventDefault();
-                                    const firstResult = document.querySelector('.result');
-                                    if (firstResult) {
-                                        firstResult.click();
-                                    }
-                                }
+                            onChange={(e) => {
+                                setQuery(e.target.value);
+                                setSelectedIndex(-1);
                             }}
+                            onKeyDown={handleInputKeyDown}
                         />
                         <svg onClick={() => searchTimeline.current.reverse()} data-testid="geist-icon" height="16" strokeLinejoin="round" viewBox="0 0 16 16" width="16" style={{ color: "currentcolor" }}>
                             <path fillRule="evenodd" clipRule="evenodd" d="M14.5 8C14.5 11.5899 11.5899 14.5 8 14.5C4.41015 14.5 1.5 11.5899 1.5 8C1.5 4.41015 4.41015 1.5 8 1.5C11.5899 1.5 14.5 4.41015 14.5 8ZM16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8ZM5.5 11.5607L6.03033 11.0303L8 9.06066L9.96967 11.0303L10.5 11.5607L11.5607 10.5L11.0303 9.96967L9.06066 8L11.0303 6.03033L11.5607 5.5L10.5 4.43934L9.96967 4.96967L8 6.93934L6.03033 4.96967L5.5 4.43934L4.43934 5.5L4.96967 6.03033L6.93934 8L4.96967 9.96967L4.43934 10.5L5.5 11.5607Z" fill="currentColor"></path>
@@ -182,16 +209,22 @@ export default function Sidebar() {
                             {filteredResults.map((item, index) => (
                                 <div
                                     key={index}
-                                    className="result"
+                                    ref={(el) => resultRefs.current[index] = el}
+                                    className={`result ${selectedIndex === index ? "selected" : ""}`}
                                     onClick={() => {
                                         navigate(item.path);
                                         searchTimeline.current.reverse();
                                     }}
                                 >
-                                    <div className="icon-left-search"></div>
-                                    <div className="wrap-acm">
-                                        <div className="search-result-item">{item.name}</div>
-                                        <span>{item.category}</span>
+                                    <div className="left-result-search">
+                                        <div className="icon-left-search"></div>
+                                        <div className="wrap-acm">
+                                            <div className="search-result-item">{item.name}</div>
+                                            <span>{item.category}</span>
+                                        </div>
+                                    </div>
+                                    <div className="enterIcon">
+                                        <svg data-testid="geist-icon" height="16" strokeLinejoin="round" viewBox="0 0 16 16" width="16" style={{ color: 'rgb(114 114 114)' }}><path fillRule="evenodd" clipRule="evenodd" d="M13.5 3V2.25H15V3V10C15 10.5523 14.5523 11 14 11H3.56068L5.53035 12.9697L6.06068 13.5L5.00002 14.5607L4.46969 14.0303L1.39647 10.9571C1.00595 10.5666 1.00595 9.93342 1.39647 9.54289L4.46969 6.46967L5.00002 5.93934L6.06068 7L5.53035 7.53033L3.56068 9.5H13.5V3Z" fill="currentColor"></path></svg>
                                     </div>
                                 </div>
                             ))}
