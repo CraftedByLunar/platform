@@ -1,0 +1,33 @@
+/* work in progress */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.spacer-top{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Inter";
+    letter-spacing: -0.03em;
+    position: auto;
+}
+
+.spacer-top h1{
+    color: black;
+}
+
+.main-center{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.main-opacity-text{
+    font-size: clamp(15px, 3vw, 25px);
+    font-family: "Inter";
+    letter-spacing: -0.03em;
+    text-align: center;
+    max-width: 95%;
+}

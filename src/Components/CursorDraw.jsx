@@ -65,8 +65,8 @@ export default function CursorDraw() {
 
             points.current.push([x, y]);
 
-            // Keep only the last 45 points
-            const max = 25;
+            // Keep only the last 20 points
+            const max = 20;
             if (points.current.length > max) {
                 points.current.splice(0, points.current.length - max);
             }

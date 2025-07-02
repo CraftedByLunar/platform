@@ -44,6 +44,7 @@ body {
   --greenDark: #28a745;
   --borderColorBlack: #424242;
   --textColorBlack: #252525;
+  --easing: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 @font-face {

@@ -5,6 +5,8 @@ import TextStagger from "../../Components/TextStagger"
 import TextSlideButton from "../../Components/TextSlideButton"
 import MagneticButton from "../../Components/MagneticButton"
 import CursorDraw from "../../Components/CursorDraw"
+import OpacityTextReveal from "../../Components/OpacityTextReveal"
+import TextScramble from "../../Components/TextScramble"
 
 
 export default function TestingSpace() {
@@ -12,9 +14,7 @@ export default function TestingSpace() {
 
     return (
         <div className="main-testing-space">
-            <div style={{ width: "500px", height: "300px", border: "1px solid #ccc" }}>
-                <CursorDraw />
-            </div>
+            <TextScramble color={"black"} text={"HOVER ME"}></TextScramble>
         </div >
     )
 }

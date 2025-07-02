@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.text-scramble{
+    font-size: 30px;
+    cursor: pointer;
+    width: fit-content;
+    font-family: "Geist Mono";
+    letter-spacing: -0.03em;
+}
