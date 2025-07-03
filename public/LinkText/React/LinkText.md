@@ -6,17 +6,18 @@ We'll begin with a basic React component that accepts text and link destination 
 import React from "react";
 import "./LinkText.css";
 
-export default function LinkText({ text, to }) {
+export default function LinkText({ text, to, className }) {
   return (
     // Component structure will be built incrementally
   );
 }
 ```
 
-The component uses two essential props:
+The component uses three essential props:
 
 - `text` defines the display content
 - `to` specifies the link destination
+- `className` for custom class names
 
 ---
 
@@ -27,7 +28,7 @@ The link component consists of a simple but effective structure that enables pre
 ```jsx
 export default function LinkText({ text, to }) {
   return (
-    <div className="linkText">
+    <div className={`linkText ${className}`}>
       <a href={to}>{text}</a>
       <div className="underline"></div>
     </div>
@@ -188,7 +189,7 @@ export default function LinkText({ text, to }) {
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className="linkText"
+      className={`linkText ${className}`}
     >
       <a href={to}>{text}</a>
       <div ref={underLineRef} className="underline"></div>
@@ -245,7 +246,7 @@ import React, { useRef } from "react";
 import "./LinkText.css";
 
 
-export default function LinkText({ text = "Hover Me!", to }) {
+export default function LinkText({ text = "Hover Me!", to, className }) {
     const underLineRef = useRef(null);
 
     const handleMouseEnter = () => {
@@ -278,7 +279,7 @@ export default function LinkText({ text = "Hover Me!", to }) {
             <div
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className="linkText"
+                className={`linkText ${className}`}
             >
                 <a href={to}>{text}</a>
                 <div ref={underLineRef} className="underLine"></div>
@@ -286,6 +287,7 @@ export default function LinkText({ text = "Hover Me!", to }) {
         </>
     );
 }
+
 
 
 // LinkText.css

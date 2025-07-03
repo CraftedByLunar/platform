@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import "./BottomNav.css";
 
-export default function BottomNav({ items }) {
+export default function BottomNav({ items, className }) {
     const [activeIndex, setActiveIndex] = useState(0);
     const itemRefs = useRef([]);
     const itemsContainerRef = useRef(null);
@@ -59,7 +59,7 @@ export default function BottomNav({ items }) {
     };
 
     return (
-        <div className="lunarNavBarWrapper" onMouseLeave={handleItemMouseLeave}>
+        <div className={`lunarNavBarWrapper ${className}`} onMouseLeave={handleItemMouseLeave}>
             {/* Logo Section */}
             <div className="lunarNavLogo">
                 <img

@@ -15,7 +15,7 @@ import CustomEase from "gsap/CustomEase";
 
 gsap.registerPlugin(CustomEase);
 
-export default function MagneticButton({ onClick, text, textColor, background }) {
+export default function MagneticButton({ onClick, text, textColor, background, className }) {
     const outerRef = useRef(null);
     const btnRef = useRef(null);
     const innerRef = useRef(null);
@@ -23,7 +23,7 @@ export default function MagneticButton({ onClick, text, textColor, background })
     useEffect(() => {
         const outer = outerRef.current;
         const button = btnRef.current;
-        const inner = innerRef.current;
+        const inner = innerRef.current.querySelectorAll("span");
 
         const handleMove = (e) => {
             const outerRect = outer.getBoundingClientRect();
@@ -38,8 +38,9 @@ export default function MagneticButton({ onClick, text, textColor, background })
             const btnHalfWidth = btnRect.width / 2;
             const btnHalfHeight = btnRect.height / 2;
 
-            const maxX = (outerRect.width / 2) - btnHalfWidth;
-            const maxY = (outerRect.height / 2) - btnHalfHeight;
+            const limitFactor = 0.5; // Lower = less movement
+            const maxX = ((outerRect.width / 2) - btnHalfWidth) * limitFactor;
+            const maxY = ((outerRect.height / 2) - btnHalfHeight) * limitFactor;
 
             let offsetX = relX - centerX;
             let offsetY = relY - centerY;
@@ -53,16 +54,16 @@ export default function MagneticButton({ onClick, text, textColor, background })
             gsap.to(button, {
                 x: offsetX,
                 y: offsetY,
-                duration: 1,
-                ease: "elastic.out(1, 0.3)"
+                duration: 0.9,
+                ease: "power4.out"
             });
 
             gsap.to(inner, {
                 x: offsetX * 0.4,
                 y: offsetY * 0.4,
-                scale: 0.87,
-                duration: 1,
-                ease: "elastic.out(1, 0.3)"
+                // scale: 0.87,
+                duration: 0.9,
+                ease: "power4.out"
             });
         };
 
@@ -74,8 +75,8 @@ export default function MagneticButton({ onClick, text, textColor, background })
                 x: 0,
                 y: 0,
                 scale: 1,
-                duration: 0.6,
-                ease: "elastic.out(1, 0.3)",
+                duration: 0.8,
+                ease: "elastic.out(1, 0.34)"
             });
         };
 
@@ -91,7 +92,7 @@ export default function MagneticButton({ onClick, text, textColor, background })
 
 
     return (
-        <div className="outer-div" ref={outerRef}>
+        <div className={`outer-div ${className}`} ref={outerRef}>
             <div className="magneticBtn">
                 <button
                     onClick={onClick}

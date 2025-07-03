@@ -11,6 +11,7 @@ export default function TextSlideButton({
     onClick,
     color,
     textColor,
+    className,
     secondaryColor = textColor,
     secondaryTextColor = color
 }) {
@@ -80,7 +81,7 @@ export default function TextSlideButton({
     }, []);
 
     return (
-        <div className="btn-slide" ref={btnRef}>
+        <div className={`btn-slide ${className}`} ref={btnRef}>
             <button onClick={onClick} style={{ background: color }}>
                 <div className="texts-btn">
                     <span

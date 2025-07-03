@@ -5,7 +5,7 @@ import ScrambleTextPlugin from "gsap/ScrambleTextPlugin";
 
 gsap.registerPlugin(ScrambleTextPlugin);
 
-export default function TextScramble({ text, color = "#fff" }) {
+export default function TextScramble({ text, color = "#fff", className }) {
     const textRef = useRef(null);
 
     const playScramble = () => {
@@ -23,7 +23,7 @@ export default function TextScramble({ text, color = "#fff" }) {
 
     return (
         <div
-            className="text-scramble"
+            className={`text-scramble ${className}`}
             onMouseEnter={playScramble}
         >
             <span ref={textRef} style={{ color }}>{text}</span>

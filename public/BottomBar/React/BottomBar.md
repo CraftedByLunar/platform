@@ -7,7 +7,7 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import "./BottomNav.css";
 
-export default function BottomNav({ items }) {
+export default function BottomNav({ items, className}) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const itemRefs = useRef([]);
@@ -34,7 +34,7 @@ The navigation consists of nested containers that enable precise control over an
 
 ```jsx
 return (
-  <div className="lunarNavBarWrapper" onMouseLeave={handleItemMouseLeave}>
+  <div className={`lunarNavBarWrapper ${className}`} onMouseLeave={handleItemMouseLeave}>
     <div className="lunarNavLogo">
       <img
         src="https://ywerf4fo8udqtrne.public.blob.vercel-storage.com/lunarNewTransparent-Cb4HhH8q32P1r4iX1bqmdSsfOioHyt.png"
@@ -376,7 +376,7 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import "./BottomNav.css";
 
-export default function BottomNav({ items }) {
+export default function BottomNav({ items, className }) {
     const [activeIndex, setActiveIndex] = useState(0);
     const itemRefs = useRef([]);
     const itemsContainerRef = useRef(null);
@@ -433,7 +433,7 @@ export default function BottomNav({ items }) {
     };
 
     return (
-        <div className="lunarNavBarWrapper" onMouseLeave={handleItemMouseLeave}>
+        <div className={`lunarNavBarWrapper ${className}`} onMouseLeave={handleItemMouseLeave}>
             {/* Logo Section */}
             <div className="lunarNavLogo">
                 <img
@@ -471,6 +471,7 @@ export default function BottomNav({ items }) {
         </div>
     );
 }
+
 
 
 // BottomNav.css

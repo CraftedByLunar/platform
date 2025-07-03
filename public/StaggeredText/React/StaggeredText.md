@@ -10,9 +10,9 @@ import "./TextStagger.css";
 
 gsap.registerPlugin(SplitText);
 
-export default function TextStagger({ text, textColor, duplicateText = text }) {
+export default function TextStagger({ text, textColor, duplicateText = text, className }) {
   return (
-    <div className="text-wrapper">
+    <div className={`text-wrapper ${className}`}>
       {/* We will build out the layout and animation soon */}
     </div>
   );
@@ -104,7 +104,7 @@ Let’s complete the component by combining layout, refs, and event handlers.
 
 ```jsx
 return (
-  <div className="text-wrapper">
+  <div className={`text-wrapper ${className}`}>
     <span onMouseEnter={slideUp} onMouseLeave={slideDown} className="resdsx">
       <div className="text">
         <span style={{ color: textColor }} ref={spanRef}>
@@ -193,7 +193,7 @@ import "./TextStagger.css";
 
 gsap.registerPlugin(SplitText);
 
-export default function TextStagger({ text, textColor, duplicateText = text }) {
+export default function TextStagger({ text, textColor, duplicateText = text, className }) {
     const spanRef = useRef(null);
     const duplicateSpanRef = useRef(null);
     const textCharsRef = useRef([]);
@@ -253,7 +253,7 @@ export default function TextStagger({ text, textColor, duplicateText = text }) {
 
 
     return (
-        <div className="text-wrapper">
+        <div className={`text-wrapper ${className}`}>
             <span
                 onMouseEnter={slideUp}
                 onMouseLeave={slideDown}
@@ -269,6 +269,7 @@ export default function TextStagger({ text, textColor, duplicateText = text }) {
         </div>
     );
 }
+
 
 // TextStagger.css
 @font-face {

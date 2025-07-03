@@ -8,6 +8,7 @@ A detailed tutorial for this component is on the way! In the meantime, feel free
 
 // TextSlideButtton.jsx
 
+
 import React, { useRef, useEffect } from "react";
 import "./TextSlideButton.css";
 import gsap from "gsap";
@@ -20,6 +21,7 @@ export default function TextSlideButton({
     onClick,
     color,
     textColor,
+    className,
     secondaryColor = textColor,
     secondaryTextColor = color
 }) {
@@ -89,7 +91,7 @@ export default function TextSlideButton({
     }, []);
 
     return (
-        <div className="btn-slide" ref={btnRef}>
+        <div className={`btn-slide ${className}`} ref={btnRef}>
             <button onClick={onClick} style={{ background: color }}>
                 <div className="texts-btn">
                     <span

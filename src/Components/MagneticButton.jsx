@@ -5,7 +5,7 @@ import CustomEase from "gsap/CustomEase";
 
 gsap.registerPlugin(CustomEase);
 
-export default function MagneticButton({ onClick, text, textColor, background }) {
+export default function MagneticButton({ onClick, text, textColor, background, className }) {
     const outerRef = useRef(null);
     const btnRef = useRef(null);
     const innerRef = useRef(null);
@@ -82,7 +82,7 @@ export default function MagneticButton({ onClick, text, textColor, background })
 
 
     return (
-        <div className="outer-div" ref={outerRef}>
+        <div className={`outer-div ${className}`} ref={outerRef}>
             <div className="magneticBtn">
                 <button
                     onClick={onClick}

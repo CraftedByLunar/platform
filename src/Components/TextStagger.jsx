@@ -5,7 +5,7 @@ import "./TextStagger.css";
 
 gsap.registerPlugin(SplitText);
 
-export default function TextStagger({ text, textColor, duplicateText = text }) {
+export default function TextStagger({ text, textColor, duplicateText = text, className }) {
     const spanRef = useRef(null);
     const duplicateSpanRef = useRef(null);
     const textCharsRef = useRef([]);
@@ -65,7 +65,7 @@ export default function TextStagger({ text, textColor, duplicateText = text }) {
 
 
     return (
-        <div className="text-wrapper">
+        <div className={`text-wrapper ${className}`}>
             <span
                 onMouseEnter={slideUp}
                 onMouseLeave={slideDown}

@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import "./LinkText.css";
 
 
-export default function LinkText({ text = "Hover Me!", to }) {
+export default function LinkText({ text = "Hover Me!", to, className }) {
     const underLineRef = useRef(null);
 
     const handleMouseEnter = () => {
@@ -36,7 +36,7 @@ export default function LinkText({ text = "Hover Me!", to }) {
             <div
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className="linkText"
+                className={`linkText ${className}`}
             >
                 <a href={to}>{text}</a>
                 <div ref={underLineRef} className="underLine"></div>

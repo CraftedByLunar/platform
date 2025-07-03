@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import "./3DComicButton.css";
 
-export default function ComicButton({ onClick, text, borderColor, color, textColor }) {
+export default function ComicButton({ onClick, text, borderColor, color, textColor, className }) {
 
     const buttonRef = useRef(null)
 
@@ -48,7 +48,7 @@ export default function ComicButton({ onClick, text, borderColor, color, textCol
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
             onClick={onClick}
-            className="button"
+            className={`button ${className}`}
             style={{
                 "--border-color": borderColor,
                 "--button-color": color,

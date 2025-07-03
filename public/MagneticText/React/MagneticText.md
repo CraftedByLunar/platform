@@ -11,7 +11,7 @@ import React, { useRef, useEffect } from "react";
 import "./MagneticText.css";
 import gsap from "gsap";
 
-export default function MagneticText({ text, color = "#fff" }) {
+export default function MagneticText({ text, color = "#fff", className }) {
     const outerRef = useRef(null);
     const textRef = useRef(null);
 
@@ -67,11 +67,12 @@ export default function MagneticText({ text, color = "#fff" }) {
     }, []);
 
     return (
-        <div className="magnetic-text-outer" ref={outerRef}>
+        <div className={`magnetic-text-outer ${className}`} ref={outerRef}>
             <span ref={textRef} style={{ color }}>{text}</span>
         </div>
     );
 }
+
 
 
 

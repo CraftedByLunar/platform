@@ -6,7 +6,6 @@ import BottomNav from "../../Components/BottomNav";
 
 export default function StartingPage() {
     const [markdownContent, setMarkdownContent] = useState("");
-
     const items = ["Home", "About", "Contact", "Work"];
 
     const loadMarkdown = useCallback((path) => {

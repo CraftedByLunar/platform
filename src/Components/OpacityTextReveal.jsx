@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger, SplitText);
 
 // work in progress
 
-export default function OpacityTextReveal({ text, color, scroller = null }) {
+export default function OpacityTextReveal({ text, color, scroller = null, className }) {
     const textRef = useRef(null);
     const spacerTopRef = useRef(null);
     const mainCenterRef = useRef(null);
@@ -60,7 +60,7 @@ export default function OpacityTextReveal({ text, color, scroller = null }) {
 
     return (
         <>
-            <div className="spacer-top" ref={spacerTopRef}>
+            <div className={`spacer-top ${className}"`} ref={spacerTopRef}>
                 <h1>Scroll Down</h1>
             </div>
             <div className="main-center" ref={mainCenterRef}>
