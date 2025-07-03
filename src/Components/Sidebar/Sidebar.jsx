@@ -33,7 +33,7 @@ export const navItems = [
     {
         category: "Buttons",
         className: "category",
-        links: [{ name: "Comic Button", path: "/app/comic-button" }, { name: "Text Slide Button", path: "/app/text-slide-btn" }, { name: "Magnetic Button", path: "/app/magnetic-button" }],
+        links: [{ name: "Comic Button", path: "/app/comic-button" }, { name: "Text Slide Button", path: "/app/text-slide-btn" }, { name: "Magnetic Button", path: "/app/magnetic-button" }, { name: "CSS-Only Bouncy Button", path: "/app/bouncy-button" }],
     },
 ];
 
