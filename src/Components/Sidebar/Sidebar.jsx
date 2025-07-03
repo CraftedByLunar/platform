@@ -18,7 +18,7 @@ export const navItems = [
     {
         category: "Text Animations",
         className: "category",
-        links: [{ name: "Link Text", path: "/app/link-text" }, { name: "Stagger Text", path: "/app/stagger-text" }, { name: "Scramble Text", path: "/app/scramble-text" }],
+        links: [{ name: "Link Text", path: "/app/link-text" }, { name: "Stagger Text", path: "/app/stagger-text" }, { name: "Scramble Text", path: "/app/scramble-text" }, { name: "Magnetic Text", path: "/app/magnetic-text" }],
     },
     {
         category: "Navigation",

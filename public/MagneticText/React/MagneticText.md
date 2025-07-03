@@ -1,3 +1,12 @@
+## Coming soon!
+
+A detailed tutorial for this component is on the way! In the meantime, feel free to explore and use the code below.
+
+---
+
+```codegroup
+
+// MagneticText.jsx
 import React, { useRef, useEffect } from "react";
 import "./MagneticText.css";
 import gsap from "gsap";
@@ -63,3 +72,39 @@ export default function MagneticText({ text, color = "#fff" }) {
         </div>
     );
 }
+
+
+
+
+// MagneticText.css
+.magnetic-text-outer {
+    display: inline-block;
+    position: relative;
+    padding: 15px;
+    cursor: pointer;
+}
+.magnetic-text-outer span {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: bold;
+    will-change: transform;
+    pointer-events: none;
+    font-size: 30px;
+    font-family: "Satoshi";
+    color: white!important;
+}
+
+
+```
+
+---
+
+## Want to Contribute?
+
+Are you a developer who enjoys sharing knowledge? We’d love your help writing a tutorial for this component! Visit our [GitHub repository](https://github.com/CraftedByLunar/platform) and become a contributor to the project.
+
+---
+
+```footer
+
+```

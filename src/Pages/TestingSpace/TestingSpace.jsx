@@ -7,6 +7,7 @@ import MagneticButton from "../../Components/MagneticButton"
 import CursorDraw from "../../Components/CursorDraw"
 import OpacityTextReveal from "../../Components/OpacityTextReveal"
 import TextScramble from "../../Components/TextScramble"
+import MageneticText from "../../Components/MagneticText"
 
 
 export default function TestingSpace() {
@@ -14,7 +15,7 @@ export default function TestingSpace() {
 
     return (
         <div className="main-testing-space">
-            <TextScramble color={"black"} text={"HOVER ME"}></TextScramble>
+            <MageneticText color={"black"} text={"HOVER ME"}></MageneticText>
         </div >
     )
 }
