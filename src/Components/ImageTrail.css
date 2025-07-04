@@ -1,0 +1,19 @@
+.main-image-trail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.trail-image {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+    will-change: transform, opacity;
+}

@@ -28,7 +28,7 @@ export const navItems = [
     {
         category: "Cursor Effects",
         className: "category",
-        links: [{ name: "Cursor Draw", path: "/app/cursor-draw" }],
+        links: [{ name: "Cursor Draw", path: "/app/cursor-draw" }, { name: "Image Trail", path: "/app/image-trail" }],
     },
     {
         category: "Buttons",

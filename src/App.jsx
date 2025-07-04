@@ -27,6 +27,7 @@ const OpacityTextReveal = lazy(() => import("./Pages/OpacityTextReveal/OpacityTe
 const MagneticButton = lazy(() => import("./Pages/MagneticButton/MagneticButton"));
 const BouncyButton = lazy(() => import("./Pages/BouncyButton/BouncyButton"));
 const MagneticText = lazy(() => import("./Pages/MagneticText/MagneticText"));
+const ImageTrail = lazy(() => import("./Pages/ImageTrail/ImageTrail"));
 const NotFound = lazy(() => import("./Pages/404/404"));
 const Terms = lazy(() => import("./Pages/Terms/Terms"));
 
@@ -100,6 +101,7 @@ function App() {
               <Route path="bouncy-button" element={<BouncyButton />} />
               <Route path="magnetic-text" element={<MagneticText />} />
               <Route path="scramble-text" element={<ScrambleText />} />
+              <Route path="image-trail" element={<ImageTrail />} />
               <Route path="text-slide-btn" element={<TextSlideBtnPage />} />
               <Route path="opacity-text-reveal" element={<OpacityTextReveal />} />
               <Route path="cursor-draw" element={<CursorDraw />} />
