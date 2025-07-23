@@ -2,6 +2,7 @@ import "./StartingPage.css";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import MDConverter from "../../Components/MDConverter/MDConverter";
 
 export default function StartingPage() {
     return (
