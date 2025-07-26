@@ -73,6 +73,7 @@ a:hover {
   font-size: 15px;
   font-family: "Satoshi";
 }
+
 .footer-docs a {
   font-size: 15px;
   font-family: "Satoshi";
@@ -133,11 +134,24 @@ a:hover {
   color: white;
 }
 
+.small-txt-p {
+  font-size: 12px !important;
+  margin-top: 10px;
+}
+
+.small-txt-p a {
+  font-size: 12px !important;
+}
+
 @media (max-width: 568px) {
   .footer-docs {
     flex-direction: column;
     gap: 5px;
     justify-content: center;
     align-items: stretch;
+  }
+
+  .small-txt-p {
+    display: none;
   }
 }

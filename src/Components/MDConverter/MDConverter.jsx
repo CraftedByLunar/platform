@@ -123,9 +123,14 @@ export default function MDConverter({ markdown }) {
             if (!inline && match && match[1] === "footer") {
                 return (
                     <div className="footer-docs" style={{ height: "100px" }}>
-                        <p>
-                            Proudly created with 💖 by <a href="https://codedbymohit.xyz">Mohit Tiwari</a>
-                        </p>
+                        <div className="wrap-xzfdsf">
+                            <p>
+                                Proudly created with 💖 by <a href="https://codedbymohit.xyz">Mohit Tiwari</a>
+                            </p>
+                            <p className="small-txt-p">
+                                shh... visit this <Link to="/app/testing-space">page</Link> for leeks
+                            </p>
+                        </div>
                         <div className="links-docs">
                             <Link to="/app/terms">Terms & Conditions</Link>
                             <Link to="/redirect/github">Github</Link>
@@ -141,9 +146,14 @@ export default function MDConverter({ markdown }) {
             if (!inline && match && match[1] === "footerFull") {
                 return (
                     <div className="footer-docs full" style={{ height: "100px" }}>
-                        <p>
-                            Proudly created with 💖 by <a href="https://codedbymohit.xyz">Mohit Tiwari</a>
-                        </p>
+                        <div className="wrap-xzfdsf">
+                            <p>
+                                Proudly created with 💖 by <a href="https://codedbymohit.xyz">Mohit Tiwari</a>
+                            </p>
+                            <p className="small-txt-p">
+                                shh... visit this <Link to="/app/testing-space">page</Link> for leeks
+                            </p>
+                        </div>
                         <div className="links-docs">
                             <Link to="/terms">Terms & Conditions</Link>
                             <Link to="/github">Github</Link>
