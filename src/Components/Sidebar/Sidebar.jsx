@@ -300,7 +300,7 @@ export default function Sidebar() {
                                             searchTimeline.current.reverse();
                                         }} className="item-search"><p>Image Trail</p></div>
                                         <div onClick={() => {
-                                            navigate("/app/image-trail");
+                                            navigate("/app/magnetic-button");
                                             searchTimeline.current.reverse();
                                         }} className="item-search"><p>Magnetic Button</p></div>
                                     </div>
@@ -428,3 +428,5 @@ export default function Sidebar() {
         </>
     );
 }
+
+
