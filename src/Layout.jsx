@@ -64,7 +64,8 @@ function Layout() {
       <div className="app-container">
         <Sidebar />
         <div
-          className={`main-docs ${showContent ? "fade-in" : "fade-out"}`}
+          // className={`main-docs ${showContent ? "fade-in" : "fade-out"}`}
+          className={'main-docs'}
           style={{ width: docsWidth }}
         >
           <Outlet />
