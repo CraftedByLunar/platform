@@ -254,7 +254,10 @@ export default function Sidebar() {
 
                     <div className="results-search">
                         <div className="results-success" style={{ display: query !== "" && filteredResults.length > 0 ? "flex" : "none" }}>
-                            {filteredResults.map((item, index) => (
+                            <div class="result-wrapper-gradient-top"></div>
+                            <div class="result-wrapper-gradient-bottom"></div>
+                            <div className="result-wrapper">
+                                {filteredResults.map((item, index) => (
                                 <div
                                     key={index}
                                     ref={(el) => resultRefs.current[index] = el}
@@ -276,6 +279,7 @@ export default function Sidebar() {
                                     </div>
                                 </div>
                             ))}
+                            </div>
                         </div>
 
                         {query === "" && (
@@ -315,7 +319,8 @@ export default function Sidebar() {
 
                         {query !== "" && filteredResults.length === 0 && (
                             <div className="not-found-search">
-                                <span>No results found for <strong>{query}</strong></span>
+                                <span>No results found for <strong>"{query}"</strong></span>
+                                <p>But you can change that, <Link to="/github">contribute now!</Link></p>
                             </div>
                         )}
                     </div>
