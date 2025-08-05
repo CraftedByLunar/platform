@@ -2,7 +2,7 @@ import "./BouncyButton.css";
 import React, { useState, useEffect, useCallback } from "react";
 import MDConverter from "../../Components/MDConverter/MDConverter";
 import ComponentPreview from "../../Components/ComponentPreview/ComponentPreview";
-import BouncyButton from "../../Components/BouncyButton";
+import BouncyButton from "../../Components/LunarComponents/BouncyButton/BouncyButton"
 
 export default function StartingPage() {
     const [markdownContent, setMarkdownContent] = useState("");

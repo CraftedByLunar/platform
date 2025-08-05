@@ -5,7 +5,7 @@ import "./Navbar.css";
 import Logo from "../../../assets/Logos/logoSvg.svg";
 import { Link } from "react-router-dom";
 import ButtonAnimated from "../ButtonAnimated/ButtonAnimated";
-import LinkText from "../../../Components/LinkText"
+import LinkText from "../../../Components/LunarComponents/LinkText/LinkText"
 
 gsap.registerPlugin(CustomEase)
 

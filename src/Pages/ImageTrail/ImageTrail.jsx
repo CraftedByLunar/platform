@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import MDConverter from "../../Components/MDConverter/MDConverter";
 import { useEffect } from "react";
 import ComponentPreview from "../../Components/ComponentPreview/ComponentPreview";
-import ImageTrail from "../../Components/ImageTrail";
+import ImageTrail from "../../Components/LunarComponents/ImageTrail/ImageTrail"
 import { useCallback } from "react";
 
 export default function StartingPage() {

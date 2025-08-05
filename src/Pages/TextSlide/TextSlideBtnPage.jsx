@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import MDConverter from "../../Components/MDConverter/MDConverter";
 import { useEffect } from "react";
 import ComponentPreview from "../../Components/ComponentPreview/ComponentPreview";
-import TextSlideButton from "../../Components/TextSlideButton";
+import TextSlideButton from "../../Components/LunarComponents/TextSlideButton/TextSlideButton"
 import { useCallback } from "react";
 
 export default function StartingPage() {

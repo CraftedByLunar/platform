@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import MDConverter from "../../Components/MDConverter/MDConverter";
 import { useEffect } from "react";
 import ComponentPreview from "../../Components/ComponentPreview/ComponentPreview";
-import OpacityTextReveal from "../../Components/OpacityTextReveal"
+import OpacityTextReveal from "../../Components/LunarComponents/OpacityTextReveal/OpacityTextReveal"
 import { useCallback } from "react";
 
 

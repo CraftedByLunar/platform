@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import MDConverter from "../../Components/MDConverter/MDConverter";
 import { useEffect } from "react";
 import ComponentPreview from "../../Components/ComponentPreview/ComponentPreview";
-import TextScramble from "../../Components/TextScramble";
+import TextScramble from "../../Components/LunarComponents/TextScramble/TextScramble"
 import { useCallback } from "react";
 
 export default function StartingPage() {

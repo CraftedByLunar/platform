@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import MDConverter from "../../Components/MDConverter/MDConverter";
 import { useEffect } from "react";
 import ComponentPreview from "../../Components/ComponentPreview/ComponentPreview";
-import MagneticButton from "../../Components/MagneticButton";
+import MagneticButton from "../../Components/LunarComponents/MagneticButton/MagneticButton"
 import { useCallback } from "react";
 
 export default function StartingPage() {

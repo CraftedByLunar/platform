@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import MDConverter from "../../Components/MDConverter/MDConverter";
 import { useEffect } from "react";
 import ComponentPreview from "../../Components/ComponentPreview/ComponentPreview";
-import TextStagger from "../../Components/TextStagger";
+import TextStagger from "../../Components/LunarComponents/TextStagger/TextStagger";
 import { useCallback } from "react";
 
 export default function StartingPage() {

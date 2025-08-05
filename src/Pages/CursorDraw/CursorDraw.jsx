@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import MDConverter from "../../Components/MDConverter/MDConverter";
 import { useEffect } from "react";
 import ComponentPreview from "../../Components/ComponentPreview/ComponentPreview";
-import CursorDraw from "../../Components/CursorDraw";
+import CursorDraw from "../../Components/LunarComponents/CursorDraw/CursorDraw"
 import { useCallback } from "react";
 
 export default function StartingPage() {

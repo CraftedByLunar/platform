@@ -2,7 +2,7 @@ import "./BottomNavPage.css";
 import React, { useState, useEffect, useCallback } from "react";
 import MDConverter from "../../Components/MDConverter/MDConverter";
 import ComponentPreview from "../../Components/ComponentPreview/ComponentPreview";
-import BottomNav from "../../Components/BottomNav";
+import BottomNav from "../../Components/LunarComponents/BottomNavButton/BottomNav";
 
 export default function StartingPage() {
     const [markdownContent, setMarkdownContent] = useState("");
