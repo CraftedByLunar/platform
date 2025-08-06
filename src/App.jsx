@@ -83,8 +83,8 @@ function App() {
           <Routes>
             {/* Landing Pages */}
             <Route path="/" element={<Home />} />
-            {/* <Route path="/pricing" element={<Pricing />} />
-            <Route path="/faq" element={<FAQ />} /> */}
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/faq" element={<FAQ />} />
 
             {/* Typo Redirect */}
             <Route path="/intro" element={<Navigate to="/app/intro" />} />

@@ -18,6 +18,16 @@ export default function StartingPage() {
 
     return (
         <div className="main-start-page">
+            {/* Idk might create it later */}
+            
+            {/* <div className="welcome-modal">
+                <div className="modal-inner">
+                    <div className="modal-title">
+                        <h1>Welcome!</h1>
+                        <span>Welcome to Lunar, </span>
+                    </div>
+                </div>
+            </div> */}
             <div className="start-page">
                 <MDConverter markdown={markdownContent}></MDConverter>
             </div>

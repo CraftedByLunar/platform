@@ -136,7 +136,7 @@
   }
 
   .button-menu {
-    display: none;
+    display: flex;
   }
 
   .navigation {

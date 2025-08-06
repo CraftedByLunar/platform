@@ -174,6 +174,8 @@ export default function FirstSection() {
                             step-by-step tutorials — all open-source, completely
                             free, and designed to help you build with confidence.
                         </span>
+                        
+                        <span id="notice-txt">Please keep in mind that Lunar is currently only available for Hackclubbers. If you want to know when this launches publicly, you can join the waitlist <a href="https://bylunar.dev">here.</a> </span>
                     </div>
 
                     <div className="btns__main">

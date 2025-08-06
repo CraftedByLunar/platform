@@ -47,7 +47,7 @@
   line-height: 1;
   width: 80%;
   letter-spacing: -0.04em;
-  font-size: clamp(26px, 5vw, 110px);
+  font-size: clamp(45px, 5vw, 110px);
 }
 
 .text__bottom {
@@ -55,11 +55,14 @@
   position: relative;
   top: 25px;
   line-height: 0.3;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .text__bottom span {
   font-family: "Satoshi", sans-serif;
-  font-size: clamp(11px, 1.2vw, 35px);
+  font-size: clamp(16px, 1.2vw, 35px);
   letter-spacing: -0.02em;
   line-height: 1.2;
   font-weight: 400;
@@ -161,6 +164,24 @@
   color: white;
 }
 
+#notice-txt{
+  font-size: 14px;
+  line-height: 0.5;
+  font-family: "Geist";
+  letter-spacing: -0.04em;
+  position: relative;
+  max-width: 700px;
+  color: #3a3a3a;
+}
+
+#notice-txt a{
+  color: black;
+}
+
+#notice-txt a:hover{
+  text-decoration: none;
+}
+
 @media (max-width: 1200px) {
   .text__bottom {
     max-width: 500px;
@@ -217,6 +238,10 @@
     width: 100%;
   }
 
+  .text__main{
+    height: 85%;
+  }
+
   .comp {
     height: 200px;
   }
@@ -225,9 +250,14 @@
     width: 95%;
   }
 
+  #notice-txt{
+    font-size: 10px;
+  }
+
   .comp__prev {
     height: 225px;
     min-height: 220px;
+    bottom: 10px;
   }
 }
 

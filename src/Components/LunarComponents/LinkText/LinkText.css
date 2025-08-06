@@ -6,6 +6,7 @@
   flex-direction: column;
   overflow: hidden;
   cursor: pointer;
+  line-height: 1.5;
 }
 
 .linkText a {
