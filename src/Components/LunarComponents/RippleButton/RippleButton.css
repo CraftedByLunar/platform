@@ -1,0 +1,57 @@
+/* Already existing styles */
+.main-ripple-btn {
+    width: fit-content;
+  }
+  
+  .main-ripple-btn button {
+    font-family: "Inter";
+    cursor: pointer;
+    background: transparent;
+    color: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .icon-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .ripple-icon-img {
+    object-fit: contain;
+  }
+  
+  /* Ripple flair effect */
+  .button-flair {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    transform: scale(0);
+    transform-origin: 0 0;
+    will-change: transform;
+    z-index: 1;
+  }
+  
+  .button-flair::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 170%;
+    aspect-ratio: 1/1;
+    background-color: var(--hover-color, #FDFADF);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  
+  

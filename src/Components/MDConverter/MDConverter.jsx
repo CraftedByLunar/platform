@@ -67,6 +67,7 @@ function CodeBlockWithCopy({ codeContent, language }) {
         </div>
     );
 }
+
 function CodeGroup({ code }) {
     const [activeFile, setActiveFile] = useState(null);
 
@@ -113,9 +114,23 @@ function CodeGroup({ code }) {
     );
 }
 
-
 export default function MDConverter({ markdown }) {
     const components = {
+        img: ({ src, alt }) => (
+            <img
+                src={src}
+                alt={alt}
+                style={{
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: "5px",
+                    objectFit: "cover",
+                    border: "1px solid var(--borderColorBlack)",
+                    boxShadow:
+                        "rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px",
+                }}
+            />
+        ),
         code({ node, inline, className, children, ...props }) {
             const codeContent = String(children).trim();
             const match = /language-(\w+)/.exec(className || "");
@@ -172,7 +187,6 @@ export default function MDConverter({ markdown }) {
             }
 
             const language = match ? match[1] : "javascript";
-
             return <CodeBlockWithCopy codeContent={codeContent} language={language} />;
         },
     };

@@ -1,18 +1,13 @@
-import "./OpacityTextReveal.css";
+import "./RippleButton.css";
 import React, { useState } from "react";
 import MDConverter from "../../Components/MDConverter/MDConverter";
 import { useEffect } from "react";
 import ComponentPreview from "../../Components/ComponentPreview/ComponentPreview";
-import OpacityTextReveal from "../../Components/LunarComponents/OpacityTextReveal/OpacityTextReveal";
+import RippleButton from "../../Components/LunarComponents/RippleButton/RippleButton";
 import { useCallback } from "react";
-
-// work in progress
 
 export default function StartingPage() {
   const [markdownContent, setMarkdownContent] = useState(``);
-  const text =
-    "Hey! this effect looks amazing right? Why not use it in your next project?";
-  const color = "black";
 
   const loadMarkdown = useCallback((path) => {
     fetch(path)
@@ -22,25 +17,24 @@ export default function StartingPage() {
   }, []);
 
   useEffect(() => {
-    loadMarkdown("/ComicButton/React/ComicButton.md");
+    loadMarkdown("/RippleButton/React/RippleButton.md");
   }, [loadMarkdown]);
 
   const handleLanguageChange = (version) => {
     if (version === "react") {
-      loadMarkdown("/ComicButton/React/ComicButton.md");
+      loadMarkdown("/RippleButton/React/RippleButton.md");
     } else if (version === "html") {
-      loadMarkdown("/ComicButton/Vanilla/ComicButtonVanilla.md");
+      loadMarkdown("/RippleButton/Vanilla/RippleButtonVanilla.md");
     }
   };
 
   return (
-    <div className="main-opacityTextReveal-page">
-      <div className="opacityTextReveal-page">
+    <div className="main-rippleButton-page">
+      <div className="rippleButton-page">
         <ComponentPreview
           onLanguageChange={handleLanguageChange}
-          componentProps={{ text, color }}
-          component={OpacityTextReveal}
-          title={"Comic Button"}
+          component={RippleButton}
+          title={"Ripple Hover Button"}
           stack={"gsap"}
         ></ComponentPreview>
         <hr />

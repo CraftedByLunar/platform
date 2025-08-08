@@ -21,10 +21,17 @@ const ScrambleText = lazy(() => import("./Pages/ScrambleText/ScrambleText"));
 const BotomNavPage = lazy(() => import("./Pages/BottomNav/BottomNavPage"));
 const ComicButton = lazy(() => import("./Pages/ComicButton/ComicButton"));
 const StaggeredText = lazy(() => import("./Pages/StaggeredText/StaggeredText"));
-const TextSlideBtnPage = lazy(() => import("./Pages/TextSlide/TextSlideBtnPage"));
+const TextSlideBtnPage = lazy(() =>
+  import("./Pages/TextSlide/TextSlideBtnPage")
+);
 const CursorDraw = lazy(() => import("./Pages/CursorDraw/CursorDraw"));
-const OpacityTextReveal = lazy(() => import("./Pages/OpacityTextReveal/OpacityTextReveal"));
-const MagneticButton = lazy(() => import("./Pages/MagneticButton/MagneticButton"));
+const OpacityTextReveal = lazy(() =>
+  import("./Pages/OpacityTextReveal/OpacityTextReveal")
+);
+const MagneticButton = lazy(() =>
+  import("./Pages/MagneticButton/MagneticButton")
+);
+const RippleButton = lazy(() => import("./Pages/RippleButton/RippleButton"));
 const BouncyButton = lazy(() => import("./Pages/BouncyButton/BouncyButton"));
 const MagneticText = lazy(() => import("./Pages/MagneticText/MagneticText"));
 const ImageTrail = lazy(() => import("./Pages/ImageTrail/ImageTrail"));
@@ -51,12 +58,12 @@ function ScrollToTop() {
 
 function ExternalRedirect({ url }) {
   useEffect(() => {
-    window.open(url, "_blank")
+    window.open(url, "_blank");
   }, [url]);
 
   setTimeout(() => {
-    window.location.pathname = "/app"
-  }, 100)
+    window.location.pathname = "/app";
+  }, 100);
 }
 
 function ConditionalLenisWrapper({ children }) {
@@ -103,7 +110,11 @@ function App() {
               <Route path="scramble-text" element={<ScrambleText />} />
               <Route path="image-trail" element={<ImageTrail />} />
               <Route path="text-slide-btn" element={<TextSlideBtnPage />} />
-              <Route path="opacity-text-reveal" element={<OpacityTextReveal />} />
+              <Route path="ripple-btn" element={<RippleButton />} />
+              <Route
+                path="opacity-text-reveal"
+                element={<OpacityTextReveal />}
+              />
               <Route path="cursor-draw" element={<CursorDraw />} />
               <Route path="terms" element={<Terms />} />
               <Route path="testing-space" element={<TestingSpace />} />

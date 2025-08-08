@@ -127,7 +127,8 @@
 
 .search img {
   width: 20px;
-  filter: invert(100%) sepia(0%) saturate(7473%) hue-rotate(27deg) brightness(97%) contrast(106%);
+  filter: invert(100%) sepia(0%) saturate(7473%) hue-rotate(27deg)
+    brightness(97%) contrast(106%);
   margin-left: 10px;
   margin-top: -1px;
 }
@@ -144,7 +145,8 @@
 #buttonStar img {
   height: 25px;
   width: 25px;
-  filter: invert(100%) sepia(0%) saturate(7473%) hue-rotate(27deg) brightness(97%) contrast(106%);
+  filter: invert(100%) sepia(0%) saturate(7473%) hue-rotate(27deg)
+    brightness(97%) contrast(106%);
 }
 
 .userDetails {
@@ -165,27 +167,79 @@
   flex-direction: column;
 }
 
-.help{
+.help {
   width: 100%;
   margin-bottom: 10px;
   margin-left: 20px;
   margin-top: 20px;
 }
 
-.help a{
-  font-size: 15px;
-    font-family: "Satoshi";
-    color: rgb(255, 255, 255);
-    width: 95%;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-    border-radius: 5px;
-    transition: all 0.2s ease;
-    text-decoration: none;
+.main-easter-egg {
+  position: fixed;
+  top: 20px;
+  right: 15px;
+  z-index: 10000000;
+  opacity: 1;
+  height: calc(100% - 40px);
+  background-color: #E3E1DE;
+  width: 100%;
+  min-width: 400px;
+  max-width: 400px;
+  border-radius: 5px;
+  right: -100%;
+  overflow: hidden;
 }
-.help a:hover{
+
+.close-btn{
+  position: absolute;
+  top: 30px;
+  right: -100%;
+  color: var(--color-light);
+  border-radius: 3px;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  background-color: #1a1a1a;
+  cursor: pointer;
+}
+
+.overlay-opacity{
+  background-color: #1a1a1a8f;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 10000000;
+
+}
+
+.close-btn svg{
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%) hue-rotate(157deg) brightness(102%) contrast(102%);
+  transform: rotate(0deg);
+  transition: transform 1s cubic-bezier(.77, 0, .175, 1);
+}
+
+.close-btn:hover svg{
+  transform: rotate(90deg);
+}
+
+.help a {
+  font-size: 15px;
+  font-family: "Satoshi";
+  color: rgb(255, 255, 255);
+  width: 95%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+.help a:hover {
   font-size: 15px;
   background-color: #424242;
 }
@@ -248,7 +302,6 @@
   flex-direction: column;
   gap: 0px;
   font-family: "Satoshi";
-
 }
 
 .group-userId-name span {
@@ -297,7 +350,6 @@
   display: none;
 }
 
-
 .userInfo {
   width: 100%;
   height: 60px;
@@ -327,7 +379,7 @@
   flex-direction: row;
   gap: 10px;
   font-family: "Satoshi";
-  color: #DFDFD7;
+  color: #dfdfd7;
   margin-left: 0px;
   font-size: 15px;
   font-weight: 500;
@@ -528,7 +580,8 @@
   margin-top: 28px;
   margin-left: 20px;
   width: 25px;
-  filter: brightness(0) saturate(100%) invert(63%) sepia(0%) saturate(2918%) hue-rotate(153deg) brightness(109%) contrast(100%);
+  filter: brightness(0) saturate(100%) invert(63%) sepia(0%) saturate(2918%)
+    hue-rotate(153deg) brightness(109%) contrast(100%);
 }
 
 .input-search svg {
@@ -537,7 +590,8 @@
   margin-top: 33.5px;
   right: 20px;
   width: 17px;
-  filter: brightness(0) saturate(100%) invert(63%) sepia(0%) saturate(2918%) hue-rotate(153deg) brightness(109%) contrast(100%);
+  filter: brightness(0) saturate(100%) invert(63%) sepia(0%) saturate(2918%)
+    hue-rotate(153deg) brightness(109%) contrast(100%);
   cursor: pointer;
 }
 
@@ -568,7 +622,7 @@
   align-items: center;
 }
 
-.not-found-search p{
+.not-found-search p {
   font-size: 13px;
   color: rgb(165, 165, 165);
   position: absolute;
@@ -584,7 +638,7 @@
   gap: 32px;
 }
 
-.result-wrapper{
+.result-wrapper {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -644,7 +698,6 @@
 
 .wrap-fasd.disabled {
   cursor: not-allowed;
-
 }
 
 .wrap-fasd.disabled div {
@@ -776,7 +829,8 @@
 }
 
 .searchIcon img {
-  filter: brightness(0) saturate(100%) invert(98%) sepia(1%) saturate(4349%) hue-rotate(180deg) brightness(121%) contrast(86%);
+  filter: brightness(0) saturate(100%) invert(98%) sepia(1%) saturate(4349%)
+    hue-rotate(180deg) brightness(121%) contrast(86%);
 }
 
 .popupSideDetails.inside {
@@ -812,7 +866,6 @@
     display: none;
   }
 
-
   .popupSideDetails {
     display: none !important;
     /* Hide default floating style */
@@ -821,8 +874,6 @@
   .popupSideDetails.inside {
     display: block;
   }
-
-
 
   .nav-mobile {
     display: flex;
