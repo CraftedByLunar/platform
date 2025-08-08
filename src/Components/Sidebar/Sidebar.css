@@ -188,6 +188,9 @@
   border-radius: 5px;
   right: -100%;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .close-btn{
@@ -205,14 +208,94 @@
   cursor: pointer;
 }
 
-.overlay-opacity{
-  background-color: #1a1a1a8f;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: 10000000;
-
+.img-easter{
+  width: 350px;
+  border-radius: 10px;
+  height: 250px;
+  background-color: #303030;
+  margin-top: 100px;
+  overflow: hidden;
+  position: relative;
+  right: -100%;
 }
+
+.text-main-easter{
+  width: 100%;
+  max-width: 350px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  position: relative;
+  right: -100%;
+}
+
+.text-main-easter h3{
+  font-family: "Inter";
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  font-size: 1.5em;
+  line-height: 1.15;
+}
+
+.text-main-easter span{
+  font-family: "Inter";
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  font-size: 0.8em;
+  margin-top: 10px;
+  color: rgb(92, 92, 92);
+}
+
+.text-main-easter p{
+  color: rgb(238, 93, 93);
+  font-family: "Geist Mono";
+  letter-spacing: -0.05em;
+  font-size: 11px;
+  margin-top: 5px;
+  background-color: red;
+  color: white;
+  padding: 5px 0px;
+}
+
+.text-main-easter p a{
+  color: #f8f8f8;
+}
+
+.info-1-easter{
+  position: absolute;
+  width: 100%;
+  max-width: 350px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: "Geist";
+  align-items: center;
+  right: -100%;
+}
+
+.info-1-easter span{
+  font-size: 16px;
+  padding: 0.2em 0.7em;
+  color: white;
+  background-color: black;
+  border-radius: 3px;
+}
+
+.info-1-easter kbd{
+  color: white;
+    background: var(--borderColorBlack);
+    border-top: 1px solid #727272;
+    border-left: 1px solid #727272;
+    border-right: 1px solid #727272;
+    border-bottom: 2px solid #727272;
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+
+
+
 
 .close-btn svg{
   width: 20px;
@@ -225,6 +308,13 @@
 .close-btn:hover svg{
   transform: rotate(90deg);
 }
+
+@media (max-width: 1000px) {
+  .main-easter-egg{
+    display: none;
+  }
+}
+
 
 .help a {
   font-size: 15px;

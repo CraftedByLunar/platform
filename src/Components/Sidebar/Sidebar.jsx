@@ -9,6 +9,7 @@ import closeIcon from "../../assets/x.svg";
 import menuIcon from "../../assets/menu.svg";
 import githubIcon from "../../assets/github.svg";
 import searchIcon from "../../assets/search-1.svg";
+import redEgg from "../../assets/redEgg.png";
 
 gsap.registerPlugin(CustomEase);
 
@@ -114,6 +115,24 @@ const EasterEgg = () => {
       duration: 0.6,
       delay: 0.2,
     });
+    gsap.to(".img-easter", {
+      right: "0px",
+      ease: "smoothEase",
+      duration: 0.6,
+      delay: 0.3,
+    });
+    gsap.to(".text-main-easter", {
+      right: "0px",
+      ease: "smoothEase",
+      duration: 0.6,
+      delay: 0.35,
+    });
+    gsap.to(".info-1-easter", {
+      right: "20px",
+      ease: "smoothEase",
+      duration: 0.6,
+      delay: 0.4,
+    });
   };
   const closeSearchModal = () => {
     gsap.to(".main-easter-egg", {
@@ -127,6 +146,21 @@ const EasterEgg = () => {
       ease: "smoothEase",
       duration: 0.8,
       delay: 0.1,
+    });
+    gsap.to(".img-easter", {
+      right: "-100%",
+      ease: "smoothEase",
+      duration: 0.6,
+    });
+    gsap.to(".text-main-easter", {
+      right: "-100%",
+      ease: "smoothEase",
+      duration: 0.65,
+    });
+    gsap.to(".info-1-easter", {
+      right: "-100%",
+      ease: "smoothEase",
+      duration: 0.7,
     });
   };
 
@@ -150,7 +184,30 @@ const EasterEgg = () => {
             ></path>
           </svg>
         </div>
-        <h1>You just found an easter egg!</h1>
+        <div className="img-easter">
+          <img src={redEgg} alt="" />
+        </div>
+        <div className="text-main-easter">
+          <h3>
+            Congrats, you've found an easter egg! 3rd easter egg might have a
+            secret code 👀
+          </h3>
+          <span>
+            Hint: It's a special discount code which will grant you 3 months of
+            free Lunar Membership - <i>Only if</i> Lunar ever introduces a
+            premium plan..
+          </span>
+          <p>
+            TIP: Taking a look at our{" "}
+            <a href="https://github.com/CraftedByLunar/platform">code</a>{" "}
+            <i>might </i>
+            help.
+          </p>
+        </div>
+        <div className="info-1-easter">
+          <span>1</span>
+          <kbd>Shift + G</kbd>
+        </div>
       </div>
     </>
   );
