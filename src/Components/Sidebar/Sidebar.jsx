@@ -188,21 +188,15 @@ const EasterEgg = () => {
           <img src={redEgg} alt="" />
         </div>
         <div className="text-main-easter">
-          <h3>
-            Congrats, you've found an easter egg! 3rd easter egg might have a
-            secret code 👀
-          </h3>
+          <h3>Congrats, you've found an easter egg! 👀</h3>
           <span>
-            Hint: It's a special discount code which will grant you 3 months of
-            free Lunar Membership - <i>Only if</i> Lunar ever introduces a
-            premium plan..
+            Great work, I guess? I mean what else do you want? A free 3 months
+            Lunar+ plan? ahh fine... ‎
+            <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0">
+              here you go
+            </a>{" "}
+            lol
           </span>
-          <p>
-            TIP: Taking a look at our{" "}
-            <a href="https://github.com/CraftedByLunar/platform">code</a>{" "}
-            <i>might </i>
-            help.
-          </p>
         </div>
         <div className="info-1-easter">
           <span>1</span>
