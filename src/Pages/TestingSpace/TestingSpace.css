@@ -1,0 +1,14 @@
+.conta{
+    height: 800px;
+    width: 800px;
+    background-color: rgb(243, 243, 243);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.conta h1{
+    position: absolute;
+    z-index: 0;
+}

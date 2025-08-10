@@ -21,6 +21,7 @@ const ScrambleText = lazy(() => import("./Pages/ScrambleText/ScrambleText"));
 const BotomNavPage = lazy(() => import("./Pages/BottomNav/BottomNavPage"));
 const ComicButton = lazy(() => import("./Pages/ComicButton/ComicButton"));
 const StaggeredText = lazy(() => import("./Pages/StaggeredText/StaggeredText"));
+const Two2Physics = lazy(() => import("./Pages/2dPhysics/2DPhysicsPage"));
 const TextSlideBtnPage = lazy(() =>
   import("./Pages/TextSlide/TextSlideBtnPage")
 );
@@ -116,6 +117,7 @@ function App() {
                 element={<OpacityTextReveal />}
               />
               <Route path="cursor-draw" element={<CursorDraw />} />
+              <Route path="two-d-physics" element={<Two2Physics />} />
               <Route path="terms" element={<Terms />} />
               <Route path="testing-space" element={<TestingSpace />} />
             </Route>

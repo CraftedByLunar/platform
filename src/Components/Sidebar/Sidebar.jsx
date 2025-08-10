@@ -35,6 +35,11 @@ export const navItems = [
     links: [{ name: "Bottom Bar", path: "/app/bottom-nav" }],
   },
   {
+    category: "Backgrounds",
+    className: "category",
+    links: [{ name: "2D Physics", path: "/app/two-d-physics" }],
+  },
+  {
     category: "Cursor Effects",
     className: "category",
     links: [
