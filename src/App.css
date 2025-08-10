@@ -20,7 +20,7 @@ body {
     background: transparent;
   }
   &::-webkit-scrollbar {
-    width: 7px;
+    width: 5px;
     background-color: transparent;
   }
   &::-webkit-scrollbar-thumb {

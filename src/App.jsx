@@ -96,10 +96,11 @@ function App() {
 
             {/* Typo Redirect */}
             <Route path="/intro" element={<Navigate to="/app/intro" />} />
+            <Route path="/terms" element={<Navigate to="app/terms" />} />
 
             {/* App pages with Layout no lenis*/}
             <Route path="/app" element={<Layout />}>
-              <Route index element={<Navigate to="/app/intro" />} />
+              <Route index element={<Navigate to="/app/link-text" />} />
               <Route path="intro" element={<StartingPage />} />
               <Route path="link-text" element={<LinkTextPage />} />
               <Route path="bottom-nav" element={<BotomNavPage />} />
