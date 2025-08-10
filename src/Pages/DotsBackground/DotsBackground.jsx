@@ -1,9 +1,9 @@
-import "./CursorDraw.css";
+import "./DotsBackground.css";
 import React, { useState } from "react";
 import MDConverter from "../../Components/MDConverter/MDConverter";
 import { useEffect } from "react";
 import ComponentPreview from "../../Components/ComponentPreview/ComponentPreview";
-import CursorDraw from "../../Components/LunarComponents/CursorDraw/CursorDraw";
+import BackgroundDots from "../../Components/LunarComponents/DotsBackground/DotsBackground";
 import { useCallback } from "react";
 
 export default function StartingPage() {
@@ -17,25 +17,29 @@ export default function StartingPage() {
   }, []);
 
   useEffect(() => {
-    loadMarkdown("/CursorDraw/React/CursorDraw.md");
+    loadMarkdown("/DotsBackground/React/DotsBackground.md");
   }, [loadMarkdown]);
 
   const handleLanguageChange = (version) => {
     if (version === "react") {
-      loadMarkdown("/CursorDraw/React/CursorDraw.md");
+      loadMarkdown("/DotsBackground/React/DotsBackground.md");
     } else if (version === "html") {
-      loadMarkdown("/CursorDraw/Vanilla/CursorDrawVanilla.md");
+      loadMarkdown("/DotsBackground/Vanilla/DotsBackgroundVanilla.md");
     }
   };
 
   return (
-    <div className="main-cursorDraw-page">
-      <div className="cursorDraw-page">
+    <div className="main-dotsBackground-page">
+      <div className="dotsBackground-page">
         <ComponentPreview
           onLanguageChange={handleLanguageChange}
-          component={CursorDraw}
-          title={"Cursor Draw"}
-          stack={"gsap"}
+          component={BackgroundDots}
+          title={"Animated Dots Background"}
+          stack={"react"}
+          styles={{
+            background: "#00305F",
+            border: "1px solid var(--blackDark)",
+          }}
         ></ComponentPreview>
         <hr />
         <MDConverter markdown={markdownContent}></MDConverter>

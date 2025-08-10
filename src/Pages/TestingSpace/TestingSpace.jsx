@@ -13,6 +13,8 @@ import ImageTrail from "../../Components/LunarComponents/ImageTrail/ImageTrail";
 import InfiniteDraggableGrid from "./DraggableComp";
 import RippleButton from "../../Components/LunarComponents/RippleButton/RippleButton";
 import TwoDPhysics from "../../Components/LunarComponents/2DPhysics/2DPhysics";
+import BackgroundDots from "../../Components/LunarComponents/DotsBackground/DotsBackground";
+import { addScaleCorrector } from "framer-motion";
 
 export default function TestingSpace() {
   const images = [
@@ -26,20 +28,7 @@ export default function TestingSpace() {
   return (
     <div className="main-testing-space">
       <div className="conta">
-        <h1>Hi, hello how are you?</h1>
-        <TwoDPhysics
-          shape={"circle"}
-          amount={40}
-          colors={[
-            "#ff6f61",
-            "#6fa8dc",
-            "#93c47d",
-            "#ffd966",
-            "#c27ba0",
-            "#76a5af",
-            "#a4c2f4",
-          ]}
-        ></TwoDPhysics>
+        <BackgroundDots></BackgroundDots>
       </div>
     </div>
   );

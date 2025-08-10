@@ -37,7 +37,10 @@ export const navItems = [
   {
     category: "Backgrounds",
     className: "category",
-    links: [{ name: "2D Physics", path: "/app/two-d-physics" }],
+    links: [
+      { name: "2D Physics", path: "/app/two-d-physics" },
+      { name: "Animated Dots Background", path: "/app/dots-background" },
+    ],
   },
   {
     category: "Cursor Effects",

@@ -21,6 +21,9 @@ const ScrambleText = lazy(() => import("./Pages/ScrambleText/ScrambleText"));
 const BotomNavPage = lazy(() => import("./Pages/BottomNav/BottomNavPage"));
 const ComicButton = lazy(() => import("./Pages/ComicButton/ComicButton"));
 const StaggeredText = lazy(() => import("./Pages/StaggeredText/StaggeredText"));
+const DotsBackground = lazy(() =>
+  import("./Pages/DotsBackground/DotsBackground")
+);
 const Two2Physics = lazy(() => import("./Pages/2dPhysics/2DPhysicsPage"));
 const TextSlideBtnPage = lazy(() =>
   import("./Pages/TextSlide/TextSlideBtnPage")
@@ -111,6 +114,7 @@ function App() {
               <Route path="magnetic-text" element={<MagneticText />} />
               <Route path="scramble-text" element={<ScrambleText />} />
               <Route path="image-trail" element={<ImageTrail />} />
+              <Route path="dots-background" element={<DotsBackground />} />
               <Route path="text-slide-btn" element={<TextSlideBtnPage />} />
               <Route path="ripple-btn" element={<RippleButton />} />
               <Route
