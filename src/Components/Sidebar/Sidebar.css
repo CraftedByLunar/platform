@@ -518,12 +518,13 @@
 }
 
 .main {
-  height: calc(100% - 180px);
-  margin-top: 100px;
+  height: calc(100% - 150px);
+  margin-top: 80px;
   padding-left: 20px;
   padding-right: 20px;
   z-index: 999;
   padding-top: 25px;
+  padding-bottom: 25px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -1018,7 +1019,7 @@
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 20px;
-    margin-top: 100px;
+    margin-top: 80px;
   }
 
   .close img {

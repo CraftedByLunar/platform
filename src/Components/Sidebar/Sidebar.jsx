@@ -59,6 +59,7 @@ export const navItems = [
       { name: "Magnetic Button", path: "/app/magnetic-button" },
       { name: "CSS-Only Bouncy Button", path: "/app/bouncy-button" },
       { name: "Ripple Hover Button", path: "/app/ripple-btn" },
+      { name: "Curvy Slide Button", path: "/app/curvy-slide-btn" },
     ],
   },
 ];

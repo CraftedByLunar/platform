@@ -35,6 +35,9 @@ const OpacityTextReveal = lazy(() =>
 const MagneticButton = lazy(() =>
   import("./Pages/MagneticButton/MagneticButton")
 );
+const CurvySlideButton = lazy(() =>
+  import("./Pages/CurvySlideButton/CurvySlideButton")
+);
 const RippleButton = lazy(() => import("./Pages/RippleButton/RippleButton"));
 const BouncyButton = lazy(() => import("./Pages/BouncyButton/BouncyButton"));
 const MagneticText = lazy(() => import("./Pages/MagneticText/MagneticText"));
@@ -117,6 +120,7 @@ function App() {
               <Route path="dots-background" element={<DotsBackground />} />
               <Route path="text-slide-btn" element={<TextSlideBtnPage />} />
               <Route path="ripple-btn" element={<RippleButton />} />
+              <Route path="curvy-slide-btn" element={<CurvySlideButton />} />
               <Route
                 path="opacity-text-reveal"
                 element={<OpacityTextReveal />}

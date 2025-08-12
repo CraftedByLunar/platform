@@ -14,7 +14,7 @@ import InfiniteDraggableGrid from "./DraggableComp";
 import RippleButton from "../../Components/LunarComponents/RippleButton/RippleButton";
 import TwoDPhysics from "../../Components/LunarComponents/2DPhysics/2DPhysics";
 import BackgroundDots from "../../Components/LunarComponents/DotsBackground/DotsBackground";
-import { addScaleCorrector } from "framer-motion";
+import CurvySlideButton from "../../Components/LunarComponents/CurvySlideButton/CurvySlideButton";
 
 export default function TestingSpace() {
   const images = [
@@ -27,9 +27,7 @@ export default function TestingSpace() {
 
   return (
     <div className="main-testing-space">
-      <div className="conta">
-        <BackgroundDots></BackgroundDots>
-      </div>
+      <CurvySlideButton></CurvySlideButton>
     </div>
   );
 }
