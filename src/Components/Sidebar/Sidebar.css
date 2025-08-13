@@ -568,6 +568,7 @@
   border-radius: 5px;
   transition: all 0.2s ease;
   text-decoration: none;
+  position: relative;
 }
 
 .items a:hover {
@@ -924,6 +925,18 @@
   border-radius: 5px;
   border: 1px solid var(--borderColorBlack);
   opacity: 0.8;
+}
+
+.new-tag{
+  font-family: "Geist Mono", sans-serif;
+    font-size: 8px;
+    position: absolute;
+    right: 20px;
+    background-color: var(--blackDark);
+    padding: 4px;
+    border-radius: 5px;
+    border: 1px solid var(--borderColorBlack);
+    opacity: 0.8;
 }
 
 /* Media Queries */

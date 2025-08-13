@@ -17,49 +17,65 @@ export const navItems = [
   {
     category: "Introduction",
     className: "category",
-    links: [{ name: "Introduction", path: "/app/intro" }],
+    links: [{ name: "Introduction", path: "/app/intro", isNew: false }],
   },
   {
     category: "Text Animations",
     className: "category",
     links: [
-      { name: "Link Text", path: "/app/link-text" },
-      { name: "Stagger Text", path: "/app/stagger-text" },
-      { name: "Scramble Text", path: "/app/scramble-text" },
-      { name: "Magnetic Text", path: "/app/magnetic-text" },
+      { name: "Link Text", path: "/app/link-text", isNew: false },
+      {
+        name: "Stagger Text",
+        path: "/app/stagger-text",
+        isNew: false,
+      },
+      { name: "Scramble Text", path: "/app/scramble-text", isNew: false },
+      { name: "Magnetic Text", path: "/app/magnetic-text", isNew: true },
     ],
   },
   {
     category: "Navigation",
     className: "nav-igation",
-    links: [{ name: "Bottom Bar", path: "/app/bottom-nav" }],
+    links: [{ name: "Bottom Bar", path: "/app/bottom-nav", isNew: false }],
   },
   {
     category: "Backgrounds",
     className: "category",
     links: [
-      { name: "2D Physics", path: "/app/two-d-physics" },
-      { name: "Animated Dots Background", path: "/app/dots-background" },
+      { name: "2D Physics", path: "/app/two-d-physics", isNew: true },
+      {
+        name: "Animated Dots Background",
+        path: "/app/dots-background",
+        isNew: true,
+      },
     ],
   },
   {
     category: "Cursor Effects",
     className: "category",
     links: [
-      { name: "Cursor Draw", path: "/app/cursor-draw" },
-      { name: "Image Trail", path: "/app/image-trail" },
+      { name: "Cursor Draw", path: "/app/cursor-draw", isNew: true },
+      { name: "Image Trail", path: "/app/image-trail", isNew: true },
     ],
   },
   {
     category: "Buttons",
     className: "category",
     links: [
-      { name: "Comic Button", path: "/app/comic-button" },
-      { name: "Text Slide Button", path: "/app/text-slide-btn" },
-      { name: "Magnetic Button", path: "/app/magnetic-button" },
-      { name: "CSS-Only Bouncy Button", path: "/app/bouncy-button" },
-      { name: "Ripple Hover Button", path: "/app/ripple-btn" },
-      { name: "Curvy Slide Button", path: "/app/curvy-slide-btn" },
+      { name: "Comic Button", path: "/app/comic-button", isNew: false },
+      { name: "Text Slide Button", path: "/app/text-slide-btn", isNew: false },
+      { name: "Magnetic Button", path: "/app/magnetic-button", isNew: true },
+      {
+        name: "CSS-Only Bouncy Button",
+        path: "/app/bouncy-button",
+        isNew: false,
+      },
+      { name: "Ripple Hover Button", path: "/app/ripple-btn", isNew: false },
+      {
+        name: "Curvy Slide Button",
+        path: "/app/curvy-slide-btn",
+        isNew: true,
+      },
     ],
   },
 ];
@@ -703,6 +719,11 @@ export default function Sidebar() {
                       to={item.path}
                       onClick={isMobile ? closeMenu : null}
                     >
+                      {item.isNew && (
+                        <div className="new-tag">
+                          <span>NEW</span>
+                        </div>
+                      )}
                       {item.name}
                     </Link>
                   ))}
