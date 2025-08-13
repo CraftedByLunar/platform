@@ -929,14 +929,19 @@
 
 .new-tag{
   font-family: "Geist Mono", sans-serif;
-    font-size: 8px;
     position: absolute;
-    right: 20px;
-    background-color: var(--blackDark);
+    right: 10px;
+    background-color: var(--yellow);
     padding: 4px;
     border-radius: 5px;
-    border: 1px solid var(--borderColorBlack);
+    border: 2px solid var(--blackDark);
     opacity: 0.8;
+    color: black;
+    font-size: 10px;
+    font-weight: 500;
+    border-radius: 6px;
+    padding: 0.2em 0.4em;
+    text-decoration: none !important;
 }
 
 /* Media Queries */
