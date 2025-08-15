@@ -13,7 +13,7 @@ export default function ComicButton({
   borderColor,
   color,
   textColor,
-  className
+  className,
 }) {
   const buttonRef = useRef(null);
 
@@ -242,7 +242,7 @@ export default function ComicButton({ onClick, text, borderColor, color, textCol
         </button>
     );
 
-}   
+}
 
 
 
@@ -282,7 +282,7 @@ export default function ComicButton({ onClick, text, borderColor, color, textCol
 
 ## Do you think something is missing in this tutorial?
 
-Send me an email at [mohit@craftedbylunar.xyz](mailto:mohit@craftedbylunar.xyz)
+Send me an email at [mohit@bylunar.dev](mailto:mohit@bylunar.dev)
 
 ---
 

@@ -10,7 +10,12 @@ import "./TextStagger.css";
 
 gsap.registerPlugin(SplitText);
 
-export default function TextStagger({ text, textColor, duplicateText = text, className }) {
+export default function TextStagger({
+  text,
+  textColor,
+  duplicateText = text,
+  className,
+}) {
   return (
     <div className={`text-wrapper ${className}`}>
       {/* We will build out the layout and animation soon */}
@@ -312,7 +317,7 @@ export default function TextStagger({ text, textColor, duplicateText = text, cla
 
 ## Do you think something is missing in this tutorial?
 
-Send me an email at [mohit@craftedbylunar.xyz](mailto:mohit@craftedbylunar.xyz)
+Send me an email at [mohit@bylunar.dev](mailto:mohit@bylunar.dev)
 
 ---
 

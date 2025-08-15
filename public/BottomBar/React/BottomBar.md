@@ -34,7 +34,10 @@ The navigation consists of nested containers that enable precise control over an
 
 ```jsx
 return (
-  <div className={`lunarNavBarWrapper ${className}`} onMouseLeave={handleItemMouseLeave}>
+  <div
+    className={`lunarNavBarWrapper ${className}`}
+    onMouseLeave={handleItemMouseLeave}
+  >
     <div className="lunarNavLogo">
       <img
         src="https://ywerf4fo8udqtrne.public.blob.vercel-storage.com/lunarNewTransparent-Cb4HhH8q32P1r4iX1bqmdSsfOioHyt.png"
@@ -622,7 +625,7 @@ export default function BottomNav({ items, className }) {
 
 ## Do you think something is missing in this tutorial?
 
-Send me an email at [mohit@craftedbylunar.xyz](mailto:mohit@craftedbylunar.xyz)
+Send me an email at [mohit@bylunar.dev](mailto:mohit@bylunar.dev)
 
 ---
 

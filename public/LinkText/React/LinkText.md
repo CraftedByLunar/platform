@@ -322,7 +322,7 @@ export default function LinkText({ text = "Hover Me!", to, className }) {
 
 ## Do you think something is missing in this tutorial?
 
-Send me an email at [mohit@craftedbylunar.xyz](mailto:mohit@craftedbylunar.xyz)
+Send me an email at [mohit@bylunar.dev](mailto:mohit@bylunar.dev)
 
 ## And with that, You did it!
 
