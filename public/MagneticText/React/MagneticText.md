@@ -7,73 +7,96 @@ A detailed tutorial for this component is on the way! In the meantime, feel free
 ```codegroup
 
 // MagneticText.jsx
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import "./MagneticText.css";
 import gsap from "gsap";
 
 export default function MagneticText({ text, color = "#fff", className }) {
-    const outerRef = useRef(null);
-    const textRef = useRef(null);
+  const outerRef = useRef(null);
+  const textRef = useRef(null);
 
-    useEffect(() => {
-        const outer = outerRef.current;
-        const textEl = textRef.current;
+  const [magnetActive, setMagnetActive] = useState(false);
+  const magnetActiveRef = useRef(false);
 
-        const handleMove = (e) => {
-            const rect = outer.getBoundingClientRect();
-            const relX = e.clientX - rect.left;
-            const relY = e.clientY - rect.top;
+  useEffect(() => {
+    magnetActiveRef.current = magnetActive;
+  }, [magnetActive]);
 
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
+  useEffect(() => {
+    const textEl = textRef.current;
+    if (!textEl) return;
 
-            let offsetX = relX - centerX;
-            let offsetY = relY - centerY;
+    const magneticRadius = 100; // px distance for attraction
+    const radiusBuffer = -20; // buffer
+    const intensity = 0.5; // text movement strength
 
-            const limitFactor = 0.7; // more movement freedom
-            const maxX = rect.width * 0.3;
-            const maxY = rect.height * 0.3;
+    const reset = () => {
+      gsap.killTweensOf(textEl);
+      gsap.to(textEl, {
+        x: 0,
+        y: 0,
+        duration: 0.8,
+        ease: "elastic.out(1, 0.34)",
+      });
+    };
 
-            offsetX = Math.max(-maxX, Math.min(maxX, offsetX)) * limitFactor;
-            offsetY = Math.max(-maxY, Math.min(maxY, offsetY)) * limitFactor;
+    const handleMove = (e) => {
+      if (!magnetActiveRef.current) return;
 
-            gsap.killTweensOf(textEl);
+      const rect = textEl.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
 
-            gsap.to(textEl, {
-                x: offsetX,
-                y: offsetY,
-                duration: 1,
-                ease: "power2.out"
-            });
-        };
+      const dx = e.clientX - centerX;
+      const dy = e.clientY - centerY;
+      const distance = Math.hypot(dx, dy);
 
-        const reset = () => {
-            gsap.killTweensOf(textEl);
-            gsap.to(textEl, {
-                x: 0,
-                y: 0,
-                duration: 1,
-                ease: "elastic.out(1, 0.34)"
-            });
-        };
+      if (distance < magneticRadius + radiusBuffer) {
+        gsap.to(textEl, {
+          x: dx * intensity,
+          y: dy * intensity,
+          duration: 0.8,
+          ease: "ease",
+        });
+      } else {
+        magnetActiveRef.current = false;
+        setMagnetActive(false);
+        reset();
+      }
+    };
 
-        outer.addEventListener("mousemove", handleMove);
-        outer.addEventListener("mouseleave", reset);
+    const handleEnter = () => {
+      magnetActiveRef.current = true;
+      setMagnetActive(true);
+    };
 
-        return () => {
-            outer.removeEventListener("mousemove", handleMove);
-            outer.removeEventListener("mouseleave", reset);
-        };
-    }, []);
+    const handleWindowLeave = () => {
+      if (magnetActiveRef.current) {
+        magnetActiveRef.current = false;
+        setMagnetActive(false);
+        reset();
+      }
+    };
 
-    return (
-        <div className={`magnetic-text-outer ${className}`} ref={outerRef}>
-            <span ref={textRef} style={{ color }}>{text}</span>
-        </div>
-    );
+    textEl.addEventListener("pointerenter", handleEnter);
+    window.addEventListener("pointermove", handleMove);
+    window.addEventListener("pointerleave", handleWindowLeave);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMove);
+      textEl.removeEventListener("mouseenter", handleEnter);
+      window.removeEventListener("mouseleave", handleWindowLeave);
+    };
+  }, []);
+
+  return (
+    <div className={`magnetic-text-outer ${className}`} ref={outerRef}>
+      <span ref={textRef} style={{ color }}>
+        {text}
+      </span>
+    </div>
+  );
 }
-
-
 
 
 
@@ -89,11 +112,10 @@ export default function MagneticText({ text, color = "#fff", className }) {
     font-size: 24px;
     font-weight: bold;
     will-change: transform;
-    pointer-events: none;
     font-size: 30px;
     font-family: "Satoshi";
-    color: white!important;
 }
+
 
 
 ```

@@ -7,132 +7,164 @@ A detailed tutorial for this component is on the way! In the meantime, feel free
 ```codegroup
 
 // MagneticButton.jsx
-
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./MagneticButton.css";
 import gsap from "gsap";
 import CustomEase from "gsap/CustomEase";
 
 gsap.registerPlugin(CustomEase);
 
-export default function MagneticButton({ onClick, text, textColor, background, className }) {
-    const outerRef = useRef(null);
-    const btnRef = useRef(null);
-    const innerRef = useRef(null);
+export default function MagneticButton({
+  onClick,
+  text,
+  textColor,
+  background,
+  className,
+}) {
+  const outerRef = useRef(null);
+  const btnRef = useRef(null);
+  const innerRef = useRef(null);
 
-    useEffect(() => {
-        const outer = outerRef.current;
-        const button = btnRef.current;
-        const inner = innerRef.current.querySelectorAll("span");
+  const [magnetActive, setMagnetActive] = useState(false);
+  const magnetActiveRef = useRef(false);
 
-        const handleMove = (e) => {
-            const outerRect = outer.getBoundingClientRect();
-            const btnRect = button.getBoundingClientRect();
+  useEffect(() => {
+    magnetActiveRef.current = magnetActive;
+  }, [magnetActive]);
 
-            const relX = e.clientX - outerRect.left;
-            const relY = e.clientY - outerRect.top;
+  useEffect(() => {
+    const outer = outerRef.current;
+    const button = btnRef.current;
+    const inner = innerRef.current
+      ? innerRef.current.querySelectorAll("span")
+      : [];
 
-            const centerX = outerRect.width / 2;
-            const centerY = outerRect.height / 2;
+    if (!outer || !button) return;
 
-            const btnHalfWidth = btnRect.width / 2;
-            const btnHalfHeight = btnRect.height / 2;
+    const magneticRadius = 120; // base radius
+    const radiusBuffer = 5; //buffer
+    const intensity = 0.3; // movement strength
 
-            const limitFactor = 0.5; // Lower = less movement
-            const maxX = ((outerRect.width / 2) - btnHalfWidth) * limitFactor;
-            const maxY = ((outerRect.height / 2) - btnHalfHeight) * limitFactor;
+    const reset = () => {
+      gsap.killTweensOf([button, inner]);
+      gsap.to([button, inner], {
+        x: 0,
+        y: 0,
+        duration: 0.6,
+        ease: "elastic.out(1, 0.4)",
+      });
+    };
 
-            let offsetX = relX - centerX;
-            let offsetY = relY - centerY;
+    const handleMove = (e) => {
+      // only run when magnet has been activated by hovering the button
+      if (!magnetActiveRef.current) return;
 
-            offsetX = Math.max(-maxX, Math.min(maxX, offsetX));
-            offsetY = Math.max(-maxY, Math.min(maxY, offsetY));
+      const outerRect = outer.getBoundingClientRect();
+      const centerX = outerRect.left + outerRect.width / 2;
+      const centerY = outerRect.top + outerRect.height / 2;
 
-            // kill any previous tweens to prevent laggy reset behavior
-            gsap.killTweensOf([button, inner]);
+      const dx = e.clientX - centerX;
+      const dy = e.clientY - centerY;
+      const distance = Math.hypot(dx, dy);
 
-            gsap.to(button, {
-                x: offsetX,
-                y: offsetY,
-                duration: 0.9,
-                ease: "power4.out"
-            });
+      gsap.killTweensOf([button, inner]);
 
-            gsap.to(inner, {
-                x: offsetX * 0.4,
-                y: offsetY * 0.4,
-                // scale: 0.87,
-                duration: 0.9,
-                ease: "power4.out"
-            });
-        };
+      if (distance < magneticRadius + radiusBuffer) {
+        gsap.to(button, {
+          x: dx * intensity,
+          y: dy * intensity,
+          duration: 0.35,
+          ease: "power3.out",
+        });
 
-        const reset = () => {
-            // kill any movement and bring back to center
-            gsap.killTweensOf([button, inner]);
+        gsap.to(inner, {
+          x: dx * intensity * 0.4,
+          y: dy * intensity * 0.4,
+          duration: 0.35,
+          ease: "power3.out",
+        });
+      } else {
+        magnetActiveRef.current = false;
+        setMagnetActive(false);
+        reset();
+      }
+    };
 
-            gsap.to([button, inner], {
-                x: 0,
-                y: 0,
-                scale: 1,
-                duration: 0.8,
-                ease: "elastic.out(1, 0.34)"
-            });
-        };
+    const handleEnter = () => {
+      magnetActiveRef.current = true;
+      setMagnetActive(true);
+    };
 
-        outer.addEventListener("mousemove", handleMove);
-        outer.addEventListener("mouseleave", reset);
+    // If the pointer leaves the entire window, also reset
+    const handleWindowLeave = () => {
+      if (magnetActiveRef.current) {
+        magnetActiveRef.current = false;
+        setMagnetActive(false);
+        reset();
+      }
+    };
 
-        return () => {
-            outer.removeEventListener("mousemove", handleMove);
-            outer.removeEventListener("mouseleave", reset);
-        };
-    }, []);
+    window.addEventListener("mousemove", handleMove);
+    button.addEventListener("mouseenter", handleEnter);
+    window.addEventListener("mouseleave", handleWindowLeave);
 
+    return () => {
+      window.removeEventListener("mousemove", handleMove);
+      button.removeEventListener("mouseenter", handleEnter);
+      window.removeEventListener("mouseleave", handleWindowLeave);
+    };
+  }, []);
 
-
-    return (
-        <div className={`outer-div ${className}`} ref={outerRef}>
-            <div className="magneticBtn">
-                <button
-                    onClick={onClick}
-                    style={{ color: textColor, background: background }}
-                    ref={btnRef}
-                >
-                    <div className="inner-div" ref={innerRef}>
-                        <span>{text}</span>
-                    </div>
-                </button>
-            </div>
-        </div>
-    );
+  return (
+    <div className={`outer-div ${className}`} ref={outerRef}>
+      <div className="magneticBtn">
+        <button
+          onClick={onClick}
+          style={{ color: textColor, background: background }}
+          ref={btnRef}
+        >
+          <div className="inner-div" ref={innerRef}>
+            <span>{text}</span>
+          </div>
+        </button>
+      </div>
+    </div>
+  );
 }
-
 
 // MagneticButton.css
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 .outer-div {
-  padding: 8px 15px;
+  padding: 16px 30px;
   width: fit-content;
+  border-radius: 50px;
 }
 
 .magneticBtn button {
-  border-radius: 50px;
-  padding: 5px 10px;
+  border-radius: 20vw;
+  padding: 5px 15px;
   font-family: "Inter";
   letter-spacing: -0.03em;
   cursor: pointer;
   border: 1px solid black;
   font-size: 20px;
+  transition: box-shadow 0.3s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0x, rgba(0, 0, 0, 0) 0px 0px 0px,
+    rgba(0, 0, 0, 0) 0px 0px 0px;
 }
 
 .inner-div {
-  padding: 5px 10px;
+  padding: 5px 14px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50px;
+}
+
+.magneticBtn button:hover {
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px,
+    rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
 }
 
 
